@@ -1,4 +1,4 @@
-spriteTypes = {
+	spriteTypes = {
 
 	spriteType = {
 		name = "GFX_country_religion_view_bg"
@@ -410,7 +410,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_incident_icons"
 		texturefile = "gfx/interface/incident_icons.dds"
-		noOfFrames = 25	#Assuming Anbennar
+		noOfFrames = 28	#Assuming Anbennar
 	}
 
 	spriteType = {

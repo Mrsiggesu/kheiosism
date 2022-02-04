@@ -31,3 +31,28 @@ lesser_lack_of_ward = {
 recent_kaydhano_wind = {
 
 }
+tolerance_of_taychendi_beliefs = {
+	local_missionary_strength = -0.02
+	local_unrest = -2
+}
+conversion_of_taychendi_people = {
+	local_missionary_strength = 0.02
+	local_unrest = 2
+}
+keep_local_bureaucrats = {
+	min_local_autonomy = 25
+}
+bureaucracies_merged = {
+	local_autonomy = 0.03
+}
+made_own_bureaucracy = {
+	local_governing_cost = 0.15
+}
+benevolent_rule = {
+	ae_impact = -0.1
+	vassal_forcelimit_bonus = 0.2
+}
+ruling_together = {
+	diplomatic_reputation = 1
+	prestige = 0.5
+}

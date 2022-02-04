@@ -411,8 +411,6 @@ country_event = {
 			name = birth_of_a_new_people 
 			duration = 3650
 		}
-		
-		capital_scope = { center_of_trade = 1 }
 	}
 	
 	option = { # Besolaki
@@ -458,8 +456,6 @@ country_event = {
 			name = birth_of_a_new_people 
 			duration = 3650
 		}
-		
-		capital_scope = { center_of_trade = 1 }
 	}
 	
 	option = { # Eneion
@@ -505,8 +501,6 @@ country_event = {
 			name = birth_of_a_new_people 
 			duration = 3650
 		}
-		
-		capital_scope = { center_of_trade = 1 }
 	}
 
     option = { # Deyeion
@@ -552,8 +546,6 @@ country_event = {
 			name = birth_of_a_new_people 
 			duration = 3650
 		}
-		
-		capital_scope = { center_of_trade = 1 }
 	}
 	
 	option = { # Apikhoxi
@@ -599,8 +591,6 @@ country_event = {
 			name = birth_of_a_new_people 
 			duration = 3650
 		}
-		
-		capital_scope = { center_of_trade = 1 }
 	}
 	
 	option = { # Keyolion
@@ -646,8 +636,6 @@ country_event = {
 			name = birth_of_a_new_people 
 			duration = 3650
 		}
-		
-		capital_scope = { center_of_trade = 1 }
 	}
 	
 	option = { # Anisikheion
@@ -693,8 +681,6 @@ country_event = {
 			name = birth_of_a_new_people 
 			duration = 3650
 		}
-		
-		capital_scope = { center_of_trade = 1 }
 	}
 	
 	option = { # Amgremos
@@ -740,8 +726,6 @@ country_event = {
 			name = birth_of_a_new_people 
 			duration = 3650
 		}
-		
-		capital_scope = { center_of_trade = 1 }
 	}
 	
 	option = { # Resist cultural change
@@ -752,8 +736,6 @@ country_event = {
 		}
 		
 		add_prestige = -10
-		
-		capital_scope = { center_of_trade = 1 }
 		
 		set_country_flag = no_formable_culture_shift
 	}
@@ -784,4 +766,590 @@ country_event = {
 #	}
 #
 #   immediate = {
-        	
+
+
+#--------------------------------------------#
+#------------# Incident Events #-------------#
+#--------------------------------------------#
+
+#----------# Breakdown of cordial relations #-----------#
+
+
+# Breakdown of cordial relations
+country_event = {
+	id = kheionai.7
+	title = kheionai.7.t
+	desc = kheionai.7.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = kheionism_breakdown_of_cordial_relations_active
+			country_event = { id = Kheionai.9 days = 30 }
+			add_country_modifier = { name = kheionism_breakdown_of_cordial_relations duration = -1 }
+		}
+	}
+
+	option = {
+		name = Kheionai.7.a
+		reduce_stability_or_adm_power = yes
+		tooltip = { add_country_modifier = { name = kheionism_breakdown_of_cordial_relations = -1 } }
+	}
+}
+
+# The situation
+country_event = {
+	id = kheionai.9
+	title = kheionai.9.t
+	desc = kheionai.9.d
+	picture = STREET_SPEECH_eventPicture
+
+	is_triggered_only = yes
+
+
+	#let the battleroyale start
+	option = {
+		name = Kheionai.9.a
+		ai_chance = { factor = 1 }
+		set_country_flag = kheionist_no_friend
+		hidden_effect = { country_event = { id = Kheionai.10 days = 3652 } }
+	}
+
+	#pacifist route
+	option = {
+		name = Kheionai.9.b
+		ai_chance = { factor = 1 }
+		set_country_flag = kheionis_bffs_forever
+		hidden_effect = { country_event = { id = Kheionai.10 days = 3652 } }
+	}
+}
+
+
+
+# Incident ends battleroyale 
+country_event = {
+	id = kheionai.10
+	title = Kheionai.10.t
+	desc = Kheionai.10.d
+	picture = STREET_SPEECH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = kheionai.10.a
+		end_incident = incident_breakdown_of_cordial_relations
+		add_country_modifier = { name = kheionism_conquest = 3652 }
+		remove_country_modifier = kheionism_breakdown_of_cordial_relations
+		if = { country_flag = conquest
+		increase_tenet_level = yes
+		}
+		else_if = { country_flag = diplomat
+		decrease_tenet_level = yes
+		}
+	}
+}
+
+# Incident ends pacifist
+country_event = {
+	id = kheionai.11
+	title = Kheionai.11.t
+	desc = Kheionai.11.d
+	picture = STREET_SPEECH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = kheionai.11.a
+		end_incident = incident_breakdown_of_cordial_relations
+		add_country_modifier = { name = kehionism_friends = 3652 }
+		remove_country_modifier = kheionism_breakdown_of_cordial_relations
+		if = { country_flag = diplomat
+		decrease_tenet_level = yes
+		}
+	}
+}
+
+
+#----------# The formation of Kheiós #-----------#
+
+
+# The formation of Kheiós
+country_event = {
+	id = kheionai.12
+	title = kheionai.12.t
+	desc = kheionai.12.d
+	picture = STREET_SPEECH_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = kheionism_the_formation_of_kheios
+			country_event = { id = Kheionai.13 days = 30 }
+			add_country_modifier = { name = kheionism_the_formation_of_kheios duration = -1 }
+		}
+	}
+
+	option = {
+		name = Kheionai.12.a
+		reduce_stability_or_adm_power = yes
+		tooltip = { add_country_modifier = { name = kheionism_the_formation_of_kheios duration = -1 } }
+	}
+}
+
+# What has happened and what to do/Breakdown of the state
+country_event = {
+	id = kheionai.13
+	title = kheionai.13.t
+	desc = kheionai.13.d
+	picture = STREET_SPEECH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = Kheionai.13.a
+		ai_chance = { factor = 1 }
+		set_country_flag = kheionist_no_more_gov_cap
+		hidden_effect = { country_event = { id = Kheionai.8 days = 365 } }
+	}
+}
+
+# The Eltikan revolt
+country_event = {
+	id = kheionai.8
+	title = kheionai.8.t
+	desc = kheionai.8.d
+	picture = FAILED_REVOLUATION_eventPicture
+
+	trigger = { 
+			TAG = H22
+			NOT = { exists = G60 }
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { TAG = G60 } }
+			hidden_effect = {
+				Province_id = 2765 = {
+					add_core = G60
+				}
+				Province_id = 2758 = {
+					add_core = G60
+				}
+				Province_id = 2780 = {
+					add_core = G60
+				}
+				Province_id = 2779 = {
+					add_core = G60
+				}
+				thelkós_area = {
+					add_core = G60
+				}
+				lokegentiá_area = {
+					add_core = G60
+				}
+				eltikan_area = {
+					add_core = G60
+				}
+				geneltik_area = {
+					add_core = G60
+				}
+				release = G60
+				every_province = {
+					limit = { is_core = G60 }
+					cede_province = G60
+				}
+				G60 = {
+					declare_war_with_cb = {
+						who = ROOT
+						casus_belli = cb_independence_war
+					}
+					define_ruler = {
+					name = "Alvarionides"
+					dynasty = "Longsword"
+					culture = eltibhar
+					religion = ROOT
+					age = 29
+					claim = 100
+					DIP = 3
+					MIL = 6
+					ADM = 4
+					}
+					define_ruler_to_general = {
+						fire = 7
+						shock = 3
+						manuever = 5
+						siege = 1
+					}
+					eltikan_area = {
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						infantry = G60
+						cavalry = G60
+						cavalry = G60
+						cavalry = G60
+						cavalry = G60
+					}
+					add_treasury = 500
+					add_prestige = 50
+				}
+				reduce_stability_or_adm_power = yes
+			}
+		}
+	}
+
+	# Play as them
+	option = {
+		name = kheionai.8.a
+		trigger = { NOT = { TAG = G60 } }
+		switch_tag = G60
+	}
+
+	# OK
+	option = {
+		name = kheionai.8.b
+		trigger = { TAG = H22 }
+		set_country_flag = eltikan_revolt
+	}
+}
+
+# Dealing with the Eltikans and ending the incident
+country_event = {
+	id = kheionai.14
+	title = kheionai.14.t
+	desc = kheionai.14.d
+	picture = STREET_SPEECH_eventPicture
+
+	trigger = {
+		has_country_flag = kheionist_no_more_gov_cap
+		war_score_against = {
+			who = G60
+			value = 99
+		}
+	}
+
+	immediate = {
+		inherit = G60 
+	}
+
+	# Remove them
+	option = {
+		name = kheionai.14.a
+		remove_accepted_culture = eltibhar
+		decrease_tenet_level = yes
+		reduce_stability_or_adm_power = yes
+		every_owned_province = {
+			limit = {
+				culture_group = eltibhari_ruinborn_elf
+			}
+			add_permanent_province_modifier = {
+				name = kheios_converting_eltikan
+				duration = 3652
+			}
+		}
+	}
+
+	# Integrate them
+	option = {
+		name = kheionai.14.b
+		add_accepted_culture = eltibhar
+	}
+
+	# Integrate them properly
+	option = {
+		name = kheionai.14.c
+		add_accepted_culture = eltibhen
+		increase_tenet_level = yes
+
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture_group = eltibhari_ruinborn_elf
+				}
+				change_culture = eltibhen
+			}
+		}
+	}
+}
+
+#----------# Spread of Taychendi ideas #-----------#
+
+# Spread of Taychendi ideas
+	country_event = {
+		id = Kheionai.15
+		title = kheionai.15.t
+		desc = kheionai.15.d
+		picture = STREET_SPEECH_eventPicture
+
+		is_triggered_only = yes
+
+		immediate = {
+			hidden_effect = {
+				set_country_flag = kheionism_spread_of_taychendi_ideas
+				country_event = { id = kheionai.16 days = 3 }
+			}
+		}
+
+		option = {
+			name = Kheionai.15.a
+		}
+	}
+
+
+# The faith of the gods
+	country_event = {
+		id = kheionai.16
+		title = kheionai.16.t
+		desc = kheionai.16.d
+		picture = STREET_SPEECH_eventPicture
+
+		is_triggered_only = yes
+
+		immediate = {
+			hidden_effect = {
+				country_event = { id = kheionai.17 days = 3 }
+			}
+		}
+
+		#religious tolerance
+		option = {
+			name = Kheionai.16.a
+			every_owned_province = {
+				limit = { religion = gods_of_the_taychend }
+				add_province_modifier = { name = tolerance_of_taychendi_beliefs duration = 3652 } 
+			}
+			add_incident_variable_value = { incident = incident_spread_of_taychendi_thought value = 3 }
+		}
+
+		#conversion
+		option = {
+			name = Kheionai.16.b
+			every_owned_province = {
+				limit = { religion = gods_of_the_taychend }
+				add_province_modifier = { name = conversion_of_taychendi_people duration = 3652 }
+			}
+			add_incident_variable_value = { incident = incident_spread_of_taychendi_thought value = 2 }
+		}
+	}
+
+# The fate of the bureaucracy
+	country_event = {
+		id = kheionai.17
+		title = kheionai.17.t
+		desc = kheionai.17.d
+		picture = STREET_SPEECH_eventPicture
+
+		is_triggered_only = yes
+
+		immediate = {
+			hidden_effect = {
+				country_event = { id = kheionai.18 days = 3 }
+			}
+		}
+
+		#keep existing bureaucrats
+		option = {
+			name = kheionai.17.a
+			every_owned_province = {
+				limit = { culture_group = taychendi_ruinborn_elf }
+				add_province_modifier = { name = keep_local_bureaucrats duration = 3652 }
+			}
+			add_incident_variable_value = { incident = incident_spread_of_taychendi_thought value = 3 }
+		}
+
+		#merge the bureaucracies 
+		option = {
+			name = kheionai.17.b
+			every_owned_province = {
+				limit = { culture_group = taychendi_ruinborn_elf }
+				add_province_modifier = { name = bureaucracies_merged duration = 3652 }
+			}
+			add_incident_variable_value = { incident = incident_spread_of_taychendi_thought value = 2 }
+		}
+
+		#make our own
+		option = {
+			name = kheionai.17.c
+			every_owned_province = {
+				limit = { culture_group = taychendi_ruinborn_elf }
+				add_province_modifier = { name = made_own_bureaucracy }
+			}
+			add_incident_variable_value = { incident = incident_spread_of_taychendi_thought value = -1 }
+		}
+	}
+
+#dealing with the aristocracy 
+	country_event = {
+		id = kheionai.18
+		title = kheionai.18.t
+		desc = kheionai.18.d
+		picture = STREET_SPEECH_eventPicture
+
+		is_triggered_only = yes
+		
+		#keep the nobles
+		option = {
+			name = kheionai.18.a
+			add_dip_power = -100
+			add_incident_variable_value = { incident = incident_spread_of_taychendi_thought value = 2 }
+			set_country_flag = end_of_bureaucracy_chain
+		}
+		
+		#handpick trusted nobles
+		option = {
+			name = kheionai.18.b
+			add_adm_power = -50
+			add_dip_power = -50
+			add_incident_variable_value = { incident = incident_spread_of_taychendi_thought value = 1 }
+			set_country_flag = end_of_bureaucracy_chain
+		}
+
+		#our own nobles shall lead
+		option = {
+			name = kheionai.18.c
+			add_adm_power = -100
+			add_incident_variable_value = { incident = incident_spread_of_taychendi_thought value = -1 }
+			set_country_flag = end_of_bureaucracy_chain
+		}
+	}
+
+#incident outcomes
+
+#benevolent rule
+	country_event = {
+		id = kheionai.19
+		title = kheionai.19.t
+		desc = kheionai.19.d
+		picture = STREET_SPEECH_eventPicture
+
+		trigger = {
+			is_incident_active = incident_spread_of_taychendi_thought
+			has_country_flag = end_of_bureaucracy_chain
+			NOT = {
+				incident_variable_value = {
+					incident = incident_spread_of_taychendi_thought
+					value = 3
+				}
+			}
+		}
+
+		mean_time_to_happen = {
+			months = 12
+		}
+
+		option = {
+			name = kheionai.19.a
+			clr_country_flag = active_incident_flag
+			if = {
+				limit = { NOT = { religion = kheionism } }
+				hidden_effect = {
+					add_isolationism = 1
+					end_incident = incident_spread_of_taychendi_thought
+				}
+				else = {
+					add_isolationism = 1
+					end_incident = incident_spread_of_taychendi_thought
+				}
+			}
+			add_country_modifier = { name = benevolent_rule duration = 3652 }
+		}
+	}
+
+#ruling together
+	country_event = {
+		id = kheionai.20
+		title = kheionai.20.t
+		desc = kheionai.20.d
+		picture = STREET_SPEECH_eventPicture
+
+		trigger = {
+			is_incident_active = incident_spread_of_taychendi_thought
+			has_country_flag = end_of_bureaucracy_chain
+			NOT = {
+				incident_variable_value = {
+					incident = incident_spread_of_taychendi_thought
+					value = 8
+				}
+			}
+			incident_variable_value = {
+				incident = incident_spread_of_taychendi_thought
+				value = 3
+			}
+		}
+
+		mean_time_to_happen = {
+			months = 12
+		}
+
+		option = {
+			name = kheionai.20.a
+			if = {
+				limit = { NOT = { religion = kheionism } }
+				hidden_effect = {
+					end_incident = incident_spread_of_taychendi_thought
+				}
+				else = {
+					end_incident = incident_spread_of_taychendi_thought
+				}
+			}
+			clr_country_flag = active_incident_flag
+			add_country_modifier = { name = ruling_together duration = 2652 }
+		}
+	}
+
+#direct rule from Alecand
+	country_event = {
+	id = kheionai.21
+	title = kheionai.21.t
+	desc = kheionai.21.d
+	picture = STREET_SPEECH_eventPicture
+
+	trigger = {
+		is_incident_active = incident_spread_of_taychendi_thought
+		has_country_flag = end_of_bureaucracy_chain
+		incident_variable_value = {
+			incident = incident_spread_of_taychendi_thought
+			value = 8
+			}
+		}
+
+		mean_time_to_happen = {
+			months = 12
+		}
+
+		option = {
+			name = kheionai.a
+			clr_country_flag = active_incident_flag
+			if = {
+				limit = { NOT = { religion = kheionism } }
+				hidden_effect = {
+					add_isolationism = -1
+					end_incident = incident_spread_of_taychendi_thought
+				}
+				else = {
+					add_isolationism = -1
+					end_incident = incident_spread_of_taychendi_thought
+				}
+			}
+			add_country_modifier = { bane = rule_direct_from_alecand duration = 2652 }
+		}
+	}
