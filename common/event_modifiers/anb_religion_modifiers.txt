@@ -1505,3 +1505,28 @@ IC_berserker_corps = {
 IC_devil_architects = {
 	development_cost = -0.1
 }
+
+#kheionist
+kheionism_breakdown_of_cordial_relations = {
+	diplomatic_upkeep = -2
+	ae_impact = +0.1
+}
+
+kheionism_conquest = {
+	land_morale = 0.10
+}
+
+kehionism_friends = {
+	accept_vassalization_reasons = 7
+}
+
+kheionism_the_formation_of_kheios = {
+	colonists = -5
+	native_uprising_chance = 1.0
+	global_colonial_growth = -100
+	stability_cost_modifier = 0.33
+	global_autonomy = 0.05
+	advisor_cost = 0.50
+	governing_capacity_modifier = -0.50
+
+}

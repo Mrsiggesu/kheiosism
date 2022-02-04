@@ -50,7 +50,7 @@ incident_vassals_placeholder = {
 		has_dlc = "Mandate of Heaven"
 		religion = bulwari_sun_cult
 		OR = {
-			tag = F33 #Akalšes
+			tag = F33 #Akalï¿½es
 			tag = F40 #Anzabad
 			tag = F35 #Azkabar
 			tag = U19 #Baharkand
@@ -60,7 +60,7 @@ incident_vassals_placeholder = {
 			tag = F44 #Kalib
 			tag = F30 #Kumarkand
 			tag = F41 #Zanbar
-			tag = F43 #Zanšap
+			tag = F43 #Zanï¿½ap
 		}
 		is_year = 1444
 		NOT = { capital_scope = { continent = south_america } }
@@ -823,3 +823,87 @@ incident_aelantir_10_placeholder = {
 		set_country_flag = active_nsc_incident_flag
 	}
 }
+
+
+
+
+######################
+##Kheionism Incidents
+######################
+
+#-------------#Kheionism Incidents#--------------#
+
+incident_breakdown_of_cordial_relations = {
+	
+	frame = 26
+	variable_initial = 0
+
+	potential = {
+		has_dlc = "Mandate of Heaven"
+		religion = kheionism
+		OR = {
+			tag = G51
+			tag = G47
+			tag = G46
+			tag = G50
+			tag = G48
+			tag = G49
+		}
+	}
+
+	trigger = {
+		NOT = { is_year = 1446 }
+	}
+
+	mean_time_to_happen = { }
+
+	immediate_effect = {
+		country_event = { id = kheionai.7 }
+	}
+}
+
+
+incident_the_formation_of_kheios = {
+
+	frame = 27
+	variable_initial = 0
+
+	potential = {
+		has_dlc = "Mandate of Heaven"
+		religion = kheionism
+	}
+
+
+	trigger = {
+	num_of_owned_provinces_with = { superregion = kheionai_superregion value = 100}
+	tag = H22
+	}
+
+	mean_time_to_happen = { }
+
+	immediate_effect = {
+		set_country_flag = active_kheionism_incident_flag
+		country_event = { id = kheionai.12 }
+	}
+}
+
+incident_spread_of_taychendi_thought = {
+
+	frame = 28
+	variable_initial = 0
+
+	potential = {
+		has_dlc = "Mandate of Heaven"
+		religion = kheionism
+	}
+
+	trigger = {
+		num_of_owned_provinces_with = { superregion = greater_taychend_superregion value = 50}
+	}
+
+	immediate_effect = {
+		set_country_flag = active_kheionism_incident_flag
+		country_event = { id = Kheionai.15 } 
+	}
+}
+

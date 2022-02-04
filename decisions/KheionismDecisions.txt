@@ -1,0 +1,80 @@
+country_decisions = {
+
+#-------# Breakdown of cordial relations incident #-----#
+
+	kheinoist_proclaim_dominance = {
+		major = yes
+		potential =  {
+			has_country_flag = kheionist_no_friend
+		}
+
+		provinces_to_highlight = {
+			region = alecand_region
+		}
+
+		allow = {
+			OR = {
+			num_of_owned_provinces_with = { region = alecand_region value = 25}
+			set_country_flag = conquest 
+			num_of_trusted_allies = 1
+			set_country_flag = diplomat
+		}
+	}
+
+		effect = {
+			country_event = { id = kheionai.10 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	kheinoist_proclaim_leadership = {
+		major = yes
+		potential =  {
+			has_country_flag = kheionist_bffs_forever
+		}
+
+		allow = {
+			OR = {
+			num_of_trusted_allies = 1
+			set_country_flag = diplomat
+		}
+	}
+
+		effect = {
+			country_event = { id = kheionai.11 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#----------# The formation of Kheiós #-----------#
+
+	kheionist_repair_the_fractured_state = {
+		major = yes
+		potential = {
+			has_country_flag = kheionist_no_more_gov_cap
+		}
+
+		allow = {
+			stability = 2
+			employed_advisor = { category = ADM }
+			employed_advisor = { category = DIP } 
+			employed_advisor = { category = MIL }  
+			government_reform_progress = 100
+			statehouse = 25
+			has_country_flag = eltikan_revolt
+		}
+
+		effect = {
+			end_incident = incident_the_formation_of_kheios
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
